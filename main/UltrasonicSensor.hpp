@@ -11,7 +11,7 @@ class UltrasonicSensor{
   public:
     /* Protótipo dos métodos */
     void initializeSensor(void);
-    void readSensor(void);
+    long readSensor(void);
 };
 
 #endif /* ULTRASONICSENSOR_H */

@@ -28,10 +28,7 @@ class Wheels{
     void wheelsFront(void);
     void wheelsStop(void);
     void wheelsBack(void);
-    void wheelsLeft(void);
-    void wheelsLeftStop(void);
-    void wheelsRight(void);
-    void wheelsRightStop(void);
+    void wheelsRotate(void);
 };
 
 #endif /* WHEELS_H */

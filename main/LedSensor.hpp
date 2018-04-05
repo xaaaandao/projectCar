@@ -7,12 +7,13 @@
 #define pinLed 30
 #define pinSensor 7
 
-int valueSensor = 0;
-
 class LedSensor{
   public:
     /* Protótipo dos métodos */
     void initializeLed(void);
+    void onLed(void);
+    void offLed(void);
+    int readSensor(void);
 };
 
 #endif /* LEDSENSOR_H */

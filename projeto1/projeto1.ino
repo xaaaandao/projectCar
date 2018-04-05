@@ -105,7 +105,7 @@ void loop(){
      motor4.run(RELEASE);
      delay(1000); 
 
-      velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
+     velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
      velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
      velocidade3 = 0xFF;
      velocidade4 = 0xFF;
