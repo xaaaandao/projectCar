@@ -1,36 +1,17 @@
 #include "Wheels.hpp"
 
-/* Rodas da frente */
+/* Definição dos motores do chassi */
 AF_DCMotor motor1(WHEEL_ONE); 
 AF_DCMotor motor3(WHEEL_THREE);
-
-unsigned char velocidade1 = 0x00;
-unsigned char velocidade3 = 0x00;
-
-
-
-/* Rodas de trás */
-
 AF_DCMotor motor2(WHEEL_TWO);
 AF_DCMotor motor4(WHEEL_FOUR);
-unsigned char velocidade2 =0x00;
-unsigned char velocidade4 = 0x00;
 
 /**
 * Autor: Clodoaldo Basaglia da Fonseca
-* Descrição: implementações dos métodos que foram definidos como protótipos no arquivo Wheels.hpp.
-* Esses métodos estão relacionados as operações que são realizadas pelas motores do shield.
+* Descrição: implementação dos métodos relacionados aos motores do chassi.
 * Data de criação: 04/04/2018
-* Data de atualização: 05/04/2018
+* Data de atualização: 06/04/2018
 **/
-
-/**
-* O método wheelsSetSpeedMax(void), coloca a velocidade máxima nos motores.
-* @param void, nenhum parâmetro.
-* @return void, não retorna nada.
-*/
-void Wheels :: wheelsSetSpeedMax(void){
-}
 
 /**
 * O método wheelsFront(void), faz os motores se movimentarem no sentido horário,
@@ -39,14 +20,13 @@ void Wheels :: wheelsSetSpeedMax(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsFront(void){
-     /*  velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
-     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
-     velocidade3 = 0xFF;
-     velocidade4 = 0xFF;*/
+     /* Velocidade recebe o valor máximo */
      motor1.setSpeed(SPEED_MAX);
      motor2.setSpeed(SPEED_MAX);
      motor3.setSpeed(SPEED_MAX);
      motor4.setSpeed(SPEED_MAX);
+     
+     /* Motores rotacionam no sentido horário */
      motor1.run(FORWARD); 
      motor2.run(FORWARD);
      motor3.run(FORWARD);
@@ -55,23 +35,24 @@ void Wheels :: wheelsFront(void){
 
 /**
 * O método wheelsStop(void), faz com que os motores parem e consequentemente
-* fazendo com que o motor pare.
+* fazendo com que o chassi não saia do lugar.
 * @param void, nenhum parâmetro.
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsStop(void){
-    /*velocidade1 = 0x00;           //Velocidade recebe o valor mínimo
-     velocidade2 = 0x00;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
-     velocidade3 = 0x00;
-     velocidade4 = 0x00;*/
+    /* Velocidade recebe o valor mínimo */
      motor1.setSpeed(SPEED_STOPPED);
      motor2.setSpeed(SPEED_STOPPED);
      motor3.setSpeed(SPEED_STOPPED);
      motor4.setSpeed(SPEED_STOPPED);
+
+     /* Motores param de funcionar */
      motor1.run(RELEASE); 
      motor2.run(RELEASE);
      motor3.run(RELEASE);
      motor4.run(RELEASE);
+
+     /* Dá uma atraso de um segundos */
      delay(1000); 
 }
 
@@ -82,40 +63,41 @@ void Wheels :: wheelsStop(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsBack(void){
-  
-     /*velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
-     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
-     velocidade3 = 0xFF;
-     velocidade4 = 0xFF;*/
+     /* Velocidade recebe o valor máximo */
      motor1.setSpeed(SPEED_MAX);
      motor2.setSpeed(SPEED_MAX);
      motor3.setSpeed(SPEED_MAX);
      motor4.setSpeed(SPEED_MAX);
+
+     /* Motores rotacionam no sentido anti-horário */
      motor1.run(BACKWARD); 
      motor2.run(BACKWARD);
      motor3.run(BACKWARD);
      motor4.run(BACKWARD);
+
+     /* Dá uma atraso de três segundos */
      delay(3000);
 }
 
 /**
-* O método wheelsBack(void), faz com que os motores de apenas um dos lados se movimentem
-* para que o mesmo consiga rotacionar.
+* O método wheelsBack(void), faz com que metade dos motores rotacionem no sentido horário
+* e as demais no sentido anti-horário, consequentemente o chassi irá rotacionar.
 * @param void, nenhum parâmetro.
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsRotate(void){
-  /*velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
-     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
-     velocidade3 = 0xFF;
-     velocidade4 = 0xFF;*/
-     motor1.setSpeed(SPEED_MAX);
-     motor2.setSpeed(SPEED_MAX);
-     motor3.setSpeed(SPEED_MAX);
-     motor4.setSpeed(SPEED_MAX);
-     motor1.run(FORWARD); 
-     motor2.run(BACKWARD);
-     motor3.run(FORWARD);
-     motor4.run(BACKWARD);
-     delay(4000);
+    /* Velocidade recebe o valor máximo */
+    motor1.setSpeed(SPEED_MAX);
+    motor2.setSpeed(SPEED_MAX);
+    motor3.setSpeed(SPEED_MAX);
+    motor4.setSpeed(SPEED_MAX);
+
+    /* Metade dos motores rotacionam no sentido anti-horário e a outra rotaciona no sentido horário */
+    motor1.run(FORWARD); 
+    motor2.run(BACKWARD);
+    motor3.run(FORWARD);
+    motor4.run(BACKWARD);
+
+    /* Dá uma atraso de quatro segundos */
+    delay(4000);
 }

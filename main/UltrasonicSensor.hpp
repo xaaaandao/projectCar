@@ -3,16 +3,19 @@
 
 /**
 * Autor: Clodoaldo Basaglia da Fonseca
-* Descrição: protótipo dos métodos implementados no arquivo UltrasonicSensor.cpp, a inclusão de algumas bibliotecas e alguns
-* define de valores.
+* Descrição: definição de alguns valores necessários para se utilizar o sensor ultrasônico,
+* a inclusão de biblioteca, para poder utilizar o pinMode, etc. e os protótipos dos métodos.
 * Data de criação: 04/04/2018
-* Data de atualização: 05/04/2018
+* Data de atualização: 06/04/2018
 **/
 
 /* Biblioteca para utilizar funções e define como: pinMode, OUTPUT */
 #include <Arduino.h>
 
+/* É o pino que envia o sinal */
 #define pinTrigger 44
+
+/* É o pino que recebe o sinal */
 #define pinEcho 42
 
 
