@@ -1,17 +1,19 @@
 #include "Wheels.hpp"
 
 /* Rodas da frente */
-AF_DCMotor motor1(1); 
-AF_DCMotor motor3(3);
+AF_DCMotor motor1(WHEEL_ONE); 
+AF_DCMotor motor3(WHEEL_THREE);
 
 unsigned char velocidade1 = 0x00;
 unsigned char velocidade3 = 0x00;
 
+
+
 /* Rodas de trás */
 
-AF_DCMotor motor2(2);
-AF_DCMotor motor4(4);
-unsigned char velocidade2 = 0x00;
+AF_DCMotor motor2(WHEEL_TWO);
+AF_DCMotor motor4(WHEEL_FOUR);
+unsigned char velocidade2 =0x00;
 unsigned char velocidade4 = 0x00;
 
 /**
@@ -37,14 +39,14 @@ void Wheels :: wheelsSetSpeedMax(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsFront(void){
-       velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
+     /*  velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
      velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
      velocidade3 = 0xFF;
-     velocidade4 = 0xFF;
-     motor1.setSpeed(velocidade1);
-     motor2.setSpeed(velocidade2);
-     motor3.setSpeed(velocidade3);
-     motor4.setSpeed(velocidade4);
+     velocidade4 = 0xFF;*/
+     motor1.setSpeed(SPEED_MAX);
+     motor2.setSpeed(SPEED_MAX);
+     motor3.setSpeed(SPEED_MAX);
+     motor4.setSpeed(SPEED_MAX);
      motor1.run(FORWARD); 
      motor2.run(FORWARD);
      motor3.run(FORWARD);
@@ -58,14 +60,14 @@ void Wheels :: wheelsFront(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsStop(void){
-    velocidade1 = 0x00;           //Velocidade recebe o valor mínimo
+    /*velocidade1 = 0x00;           //Velocidade recebe o valor mínimo
      velocidade2 = 0x00;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
      velocidade3 = 0x00;
-     velocidade4 = 0x00;
-     motor1.setSpeed(velocidade1);
-     motor2.setSpeed(velocidade2);
-     motor3.setSpeed(velocidade3);
-     motor4.setSpeed(velocidade4);
+     velocidade4 = 0x00;*/
+     motor1.setSpeed(SPEED_STOPPED);
+     motor2.setSpeed(SPEED_STOPPED);
+     motor3.setSpeed(SPEED_STOPPED);
+     motor4.setSpeed(SPEED_STOPPED);
      motor1.run(RELEASE); 
      motor2.run(RELEASE);
      motor3.run(RELEASE);
@@ -81,14 +83,14 @@ void Wheels :: wheelsStop(void){
 */
 void Wheels :: wheelsBack(void){
   
-     velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
+     /*velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
      velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
      velocidade3 = 0xFF;
-     velocidade4 = 0xFF;
-     motor1.setSpeed(velocidade1);
-     motor2.setSpeed(velocidade2);
-     motor3.setSpeed(velocidade3);
-     motor4.setSpeed(velocidade4);
+     velocidade4 = 0xFF;*/
+     motor1.setSpeed(SPEED_MAX);
+     motor2.setSpeed(SPEED_MAX);
+     motor3.setSpeed(SPEED_MAX);
+     motor4.setSpeed(SPEED_MAX);
      motor1.run(BACKWARD); 
      motor2.run(BACKWARD);
      motor3.run(BACKWARD);
@@ -103,14 +105,14 @@ void Wheels :: wheelsBack(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsRotate(void){
-  velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
+  /*velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
      velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
      velocidade3 = 0xFF;
-     velocidade4 = 0xFF;
-     motor1.setSpeed(velocidade1);
-     motor2.setSpeed(velocidade2);
-     motor3.setSpeed(velocidade3);
-     motor4.setSpeed(velocidade4);
+     velocidade4 = 0xFF;*/
+     motor1.setSpeed(SPEED_MAX);
+     motor2.setSpeed(SPEED_MAX);
+     motor3.setSpeed(SPEED_MAX);
+     motor4.setSpeed(SPEED_MAX);
      motor1.run(FORWARD); 
      motor2.run(BACKWARD);
      motor3.run(FORWARD);

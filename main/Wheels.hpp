@@ -15,7 +15,13 @@
 /* Biblioteca relacionada ao shield do motor */
 #include <AFMotor.h>
 
+#define WHEEL_ONE 1
+#define WHEEL_TWO 2
+#define WHEEL_THREE 3
+#define WHEEL_FOUR 4
 
+#define SPEED_MAX 0xFF
+#define SPEED_STOPPED 0x00
 
 class Wheels{
 	public:
