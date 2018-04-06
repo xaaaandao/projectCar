@@ -4,7 +4,7 @@
 /* Biblioteca para utilizar funções e define como: pinMode, OUTPUT */
 #include <Arduino.h>
 
-#define pinLed 30
+#define pinLed 32
 #define pinSensor 7
 
 class LedSensor{
@@ -13,7 +13,7 @@ class LedSensor{
     void initializeLed(void);
     void onLed(void);
     void offLed(void);
-    int readSensor(void);
+    int readLedSensor(void);
 };
 
 #endif /* LEDSENSOR_H */

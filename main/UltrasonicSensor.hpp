@@ -15,11 +15,12 @@
 #define pinTrigger 44
 #define pinEcho 42
 
+
 class UltrasonicSensor{
   public:
     /* Protótipo dos métodos */
-    void initializeSensor(void);
-    long readSensor(void);
+    void initializeUltrasonic(void);
+    long readUltrasonicSensor(void);
 };
 
 #endif /* ULTRASONICSENSOR_H */

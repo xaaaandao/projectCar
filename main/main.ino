@@ -1,48 +1,54 @@
-#include "Wheels.hpp"
 #include "LedSensor.hpp"
 #include "UltrasonicSensor.hpp"
+#include "Wheels.hpp"
 
-/* Cria as variáveis, para pode invocar os métodos presentes nessas classes */
 LedSensor ledSensor;
-UltrasonicSensor ultrasonicSensor;
-Wheels wheels;
+UltrasonicSensor us;
+Wheels w;
 
+/*teste*/
 void setup(){
-  /* Inicializa o sensor de luz */
+  Serial.begin(9600);
+
   ledSensor.initializeLed();
-  /* Inicializa o sensor ultrasônico */
-  ultrasonicSensor.initializeSensor();
+  us.initializeUltrasonic();
 }
  
 void loop(){
-  /* Sensor de luz */
-  if(ledSensor.readSensor() < 30)
-    /* Acende o led */
-    ledSensor.onLed();
-  else
-    /* Apaga o led */
-    ledSensor.offLed();
+  //sensor de distancia
+  long distancia = us.readUltrasonicSensor();
 
-  long distancia = ultrasonicSensor.readSensor();
-  if(distancia < 10){
-    /* Faz as rodas parar */
-    wheels.wheelsStop();
-    delay(1000);
+  // SENSOR DE LUZ
+   if(ledSensor.readLedSensor() < 30)
+      ledSensor.onLed();
+   else
+      ledSensor.offLed();
 
-    /* Faz as rodas andar para trás */
-    wheels.wheelsBack();
-    delay(3000);
-
-    /* Faz as rodas parar */
-    wheels.wheelsStop();
-    delay(1000);
-
-    /* Faz as rodas rotacionar */
-    wheels.wheelsRotate();
-    delay(4000);
-    
+  if(distancia <10){
+     w.wheelsStop();
+     w.wheelsBack();
+     w.wheelsStop();
+     w.wheelsRotate();
+     
   } else if(distancia > 10){
-    /* Faz as rodas ir para frente */
-    wheels.wheelsFront();
+    w.wheelsFront();
   }
-}
+ /*
+      
+      // -- Controle Gradativo de Aceleração --
+      for(velocidade1 = 0x00; velocidade1<255; velocidade1++)
+      {
+         motor1.setSpeed(velocidade1); //Atualiza velocidade
+         motor1.run(FORWARD);          //Motor gira em sentido horário
+         delay(10);                    //Taxa de atualização de 10 ms
+      
+      } //end for
+      
+      velocidade1 = 0x00;           //Velocidade recebe o valor mínimo
+      motor1.setSpeed(velocidade1); //Seleciona velocidade atual
+      motor1.run(RELEASE);          //Motor parado
+      delay(2000);                  //Mantém por 2 segundos
+      */
+
+
+} //end loop

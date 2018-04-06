@@ -5,10 +5,9 @@
 * @param void, nenhum parâmetro.
 * @return void, não retorna nada.
 */
-void UltrasonicSensor :: initializeSensor(void){
-  /* Inicializa o sensor */
-  pinMode(pinTrigger, OUTPUT);
-  pinMode(pinEcho, INPUT);
+void UltrasonicSensor :: initializeUltrasonic(void){
+  pinMode(pinTrigger,OUTPUT);
+  pinMode(pinEcho,INPUT);
 }
 
 /**
@@ -17,18 +16,14 @@ void UltrasonicSensor :: initializeSensor(void){
 * @param void, nenhum parâmetro.
 * @return (duracao / 2) / 29.1, que é um long com o valor da distância de algo que se aproxima.
 */
-long UltrasonicSensor :: readSensor(void){
-  /* */
+long UltrasonicSensor :: readUltrasonicSensor(void){
+  long duracao;
   digitalWrite(pinTrigger, LOW);
   delayMicroseconds(2);
-
-  /* */
-  digitalWrite(pinTrigger, HIGH);
+  digitalWrite(pinTrigger,HIGH);
   delayMicroseconds(10);
-
-  /* */
-  digitalWrite(pinTrigger, LOW);
-  long duracao = pulseIn(pinEcho, HIGH);
+  digitalWrite(pinTrigger,LOW);
+  duracao = pulseIn(pinEcho,HIGH);
   return (duracao / 2) / 29.1;
 }
 

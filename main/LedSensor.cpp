@@ -1,21 +1,17 @@
 #include "LedSensor.hpp"
 
 void LedSensor :: initializeLed(void){
-  /* Inicializa o LED */
   pinMode(pinLed, OUTPUT);
 }
 
 void LedSensor :: onLed(void){
-  /* Inicializa o LED */
   digitalWrite(pinLed, HIGH);
 }
 
 void LedSensor :: offLed(void){
-  /* Inicializa o LED */
   digitalWrite(pinLed, LOW);
 }
 
-int LedSensor :: readSensor(void){
-  /* Faz a leitura do sensor */
+int LedSensor :: readLedSensor(void){
   return analogRead(pinSensor);
 }

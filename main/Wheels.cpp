@@ -1,5 +1,19 @@
 #include "Wheels.hpp"
 
+/* Rodas da frente */
+AF_DCMotor motor1(1); 
+AF_DCMotor motor3(3);
+
+unsigned char velocidade1 = 0x00;
+unsigned char velocidade3 = 0x00;
+
+/* Rodas de trás */
+
+AF_DCMotor motor2(2);
+AF_DCMotor motor4(4);
+unsigned char velocidade2 = 0x00;
+unsigned char velocidade4 = 0x00;
+
 /**
 * Autor: Clodoaldo Basaglia da Fonseca
 * Descrição: implementações dos métodos que foram definidos como protótipos no arquivo Wheels.hpp.
@@ -8,25 +22,12 @@
 * Data de atualização: 05/04/2018
 **/
 
-using namespace std;
-
-/* Variáveis relacionadas aos motores */
-AF_DCMotor motor1(WHEEL_ONE); 
-AF_DCMotor motor2(WHEEL_TWO);
-AF_DCMotor motor3(WHEEL_THREE);
-AF_DCMotor motor4(WHEEL_FOUR);
-
 /**
 * O método wheelsSetSpeedMax(void), coloca a velocidade máxima nos motores.
 * @param void, nenhum parâmetro.
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsSetSpeedMax(void){
-  /* Seleciona a velocidade para a velocidade máxima */
-  motor1.setSpeed(SPEED_MAX);
-  motor2.setSpeed(SPEED_MAX);
-  motor3.setSpeed(SPEED_MAX);
-  motor4.setSpeed(SPEED_MAX);
 }
 
 /**
@@ -36,13 +37,18 @@ void Wheels :: wheelsSetSpeedMax(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsFront(void){
-  Wheels: wheelsSetSpeedMax();
-
-  /* Movimenta o motor no sentido horário */
-  motor1.run(GO);
-  motor2.run(GO);
-  motor3.run(GO);
-  motor4.run(GO);
+       velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
+     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
+     velocidade3 = 0xFF;
+     velocidade4 = 0xFF;
+     motor1.setSpeed(velocidade1);
+     motor2.setSpeed(velocidade2);
+     motor3.setSpeed(velocidade3);
+     motor4.setSpeed(velocidade4);
+     motor1.run(FORWARD); 
+     motor2.run(FORWARD);
+     motor3.run(FORWARD);
+     motor4.run(FORWARD);
 }
 
 /**
@@ -52,13 +58,19 @@ void Wheels :: wheelsFront(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsStop(void){
-  Wheels: wheelsSetSpeedMax();
-
-  /* Motor no estado de parado */
-  motor1.run(STOP);
-  motor2.run(STOP);
-  motor3.run(STOP);
-  motor4.run(STOP);
+    velocidade1 = 0x00;           //Velocidade recebe o valor mínimo
+     velocidade2 = 0x00;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
+     velocidade3 = 0x00;
+     velocidade4 = 0x00;
+     motor1.setSpeed(velocidade1);
+     motor2.setSpeed(velocidade2);
+     motor3.setSpeed(velocidade3);
+     motor4.setSpeed(velocidade4);
+     motor1.run(RELEASE); 
+     motor2.run(RELEASE);
+     motor3.run(RELEASE);
+     motor4.run(RELEASE);
+     delay(1000); 
 }
 
 /**
@@ -68,13 +80,20 @@ void Wheels :: wheelsStop(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsBack(void){
-  Wheels: wheelsSetSpeedMax();
-
-  /* Movimenta o motor no sentido anti-horário */
-  motor1.run(GO_BACK);
-  motor2.run(GO_BACK);
-  motor3.run(GO_BACK);
-  motor4.run(GO_BACK);
+  
+     velocidade1 = 0xFF;           //Velocidade recebe o valor maximo
+     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
+     velocidade3 = 0xFF;
+     velocidade4 = 0xFF;
+     motor1.setSpeed(velocidade1);
+     motor2.setSpeed(velocidade2);
+     motor3.setSpeed(velocidade3);
+     motor4.setSpeed(velocidade4);
+     motor1.run(BACKWARD); 
+     motor2.run(BACKWARD);
+     motor3.run(BACKWARD);
+     motor4.run(BACKWARD);
+     delay(3000);
 }
 
 /**
@@ -84,11 +103,17 @@ void Wheels :: wheelsBack(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsRotate(void){
-  Wheels: wheelsSetSpeedMax();
-
-  /* Movimenta o motor para rotacionar */
-  motor1.run(GO); 
-  motor2.run(GO_BACK);
-  motor3.run(GO);
-  motor4.run(GO_BACK);
+  velocidade1 = 0xFF;           //Velocidade recebe o valor mínimo
+     velocidade2 = 0xFF;            // quatro velocidades diferentes para poder rodar uma roda separada da outra quando for virar
+     velocidade3 = 0xFF;
+     velocidade4 = 0xFF;
+     motor1.setSpeed(velocidade1);
+     motor2.setSpeed(velocidade2);
+     motor3.setSpeed(velocidade3);
+     motor4.setSpeed(velocidade4);
+     motor1.run(FORWARD); 
+     motor2.run(BACKWARD);
+     motor3.run(FORWARD);
+     motor4.run(BACKWARD);
+     delay(4000);
 }
