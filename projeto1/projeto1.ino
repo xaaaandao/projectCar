@@ -52,7 +52,7 @@ void loop(){
 
   // SENSOR DE LUZ
    valSensor = analogRead(pinSensor);
-    if(valSensor < 30){
+    if(valSensor < 250){
       
       digitalWrite(ledEsq, HIGH);
     } else {

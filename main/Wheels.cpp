@@ -94,8 +94,8 @@ void Wheels :: wheelsRotate(void){
 
     /* Metade dos motores rotacionam no sentido anti-horário e a outra rotaciona no sentido horário */
     motor1.run(FORWARD); 
-    motor2.run(BACKWARD);
-    motor3.run(FORWARD);
+    motor2.run(FORWARD);
+    motor3.run(BACKWARD);
     motor4.run(BACKWARD);
 
     /* Dá uma atraso de quatro segundos */

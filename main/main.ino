@@ -28,7 +28,7 @@ void loop(){
   long distancia = ultrasonicSensor.readUltrasonicSensor();
   
   /* Faz a leitura do sensor de luminosidade */
-  if(ledSensor.readLedSensor() < 30)
+  if(ledSensor.readLedSensor() < 250)
     ledSensor.onLed();
   else
     ledSensor.offLed();
