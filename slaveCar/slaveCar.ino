@@ -54,6 +54,7 @@ void loop(){
         if (line.length() == 1 && line[0] == '\n'){
           
           /* Envia para o cliente o cabeçalho e o corpo */
+          Serial.println(getFeature(feature));
           client.println(getFeature(feature));
           break;
           
@@ -76,45 +77,57 @@ String getFeature(String line){
   /* Removo o GET e o HTTP/1.1 */
   line.replace("GET ", "");
   line.replace(" HTTP/1.1", "");
-  
-  if((line.indexOf("/home.html") == 0) || (line.charAt(0) == '/' && line.length() == 1))
+  Serial.println(line);
+    
+  if((line.indexOf("/home.html") == 0) || (line.charAt(0) == '/' && line.length() == 1)){
+    Serial.println("1");
     return headerResponse() + bodyResponseHome();
-  else if(line.indexOf("/contato.html") == 0)
+  } else if(line.indexOf("/contato.html") == 0){
+    Serial.println("2");
     return headerResponse() + bodyResponseContato();
-  else if(line.indexOf("/controlar.html") == 0)
+  } else if(line.indexOf("/controlar.html") == 0){
+    Serial.println("3");
     return headerResponse() + bodyResponseControlar();
-  else if(line.indexOf("/led.html") == 0)
+  } else if(line.indexOf("/led.html") == 0){
+    Serial.println("4");
     return headerResponse() + bodyResponseLed();
-  else if(line.indexOf("/modo.html") == 0)
+  } else if(line.indexOf("/modo.html") == 0) {
+    Serial.println("5");
     return headerResponse() + bodyResponseModo();
-  else
+  } else {
+    Serial.println("6");
     return headerResponse() + bodyResponse404();
+  }
 }
 
 String headerResponse(){
   return String("HTTP/1.1 200 OK\r\n") +
-            "Content-Type: text/html\r\n" +
+            "Date: 16/04/2018\r\n" +
+            "Last-Modified: 16/04/2018\r\n" +
+            //"Content-Length: 1\r\n" +
+            "Content-Type: text/html;charset=UTF-8\r\n" +
             "Connection: close\r\n" +
             "\r\n\r\n";
 }
 
 String bodyResponseHome(){
-  return String("<!DOCTYPE html PUBLIC \"-//IETF//DTD HTML 2.0//EN\">") +
-            "<html><head>" +
-            "<meta http-equiv=\"content-type\" content=\"text/html; charset=windows-1252\">" +
-            "<title>Home - Project Car v2</title>" + 
-            "<style></style></head><body>"+
-            "<h1>Bem vindo ao projeto carro v2</h1>" +
-            "<p>Desfrute do seu novo carro." +
-            "<ul style=\"list-style-type:circle\">" +
-            "<a href=\"home.html\"><li>Home</li></a>" +
-            "<a href=\"controlar.html\"><li>Controlar</li></a>" +
-            "<a href=\"led.html\"><li>LED</li></a>" +
-            "<a href=\"modo.html\"><li>Modos de conducao</li></a>" +
-            "<a href=\"contato.html\"><li>Contato</li></a>" +
-            "</ul>" +
-            "</p></body></html>" +
-            "\r\n";
+  return String("<html>") +
+    "<head>" +
+      "<title>Home - Project Car v2</title>" +
+    "</head>" +
+    "<body>" +
+      "<h1>Bem vindo ao projeto carro v2</h1>" +
+      "<p>Desfrute do seu novo carro." +
+      "<ul style=\"list-style-type:circle\">" +
+        "<a href=\"home.html\"><li>Home</li></a>" +
+          "<a href=\"controlar.html\"><li>Controlar</li></a>" +
+          "<a href=\"led.html\"><li>LED</li></a>" +
+          "<a href=\"conducao.html\"><li>Modos de conducao</li></a>"
+          "<a href=\"contato.html\"><li>Contato</li></a>"
+      "</ul>" +
+      "</p>" +
+    "</body>" +
+  "</html>";
 }
 
 String bodyResponseContato(){
