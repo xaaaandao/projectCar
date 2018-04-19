@@ -30,10 +30,8 @@ public class MenuMain {
 	int labelHeight = 30;
 		
 	public MenuMain() {
-		Frame frameMenu = new Frame();
-		//Frame window = new JFrame("Project car v2");
-		//JPanel panel = new JPanel();
-		JFrame window = frameMenu.buildFrame("Project car v2");
+		JPanel panel = new JPanel();
+		JFrame window = new JFrame("Project car v2");
 		JButton controleButton = new JButton("Controle");
 		JButton modoButton = new JButton("Modo");
 		JButton ledButton = new JButton("Led");
@@ -58,13 +56,12 @@ public class MenuMain {
 		window.add(sairButton);
 					
 		/* Defini alguns padrões no menu principal */
-		frameMenu.setDefaultFrame(window);
-		/*window.add(panel, BorderLayout.CENTER);
+		window.add(panel, BorderLayout.CENTER);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(height, width);
 		window.setResizable(false);
 		window.setLocationRelativeTo(null);
-		window.setVisible(true);*/
+		window.setVisible(true);
 		
 		/* Chamo os listener */
 		controleButtonListener(controleButton);
@@ -76,8 +73,7 @@ public class MenuMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Frame frameControle = new Frame();
-				JFrame window = frameControle.buildFrame("Controle seu carrinho");
+				//JFrame window = new JFrame("Controle seu carrinho");
 			}
 		});
 	}
