@@ -65,6 +65,9 @@ public class MenuMain {
 		
 		/* Chamo os listener */
 		controleButtonListener(controleButton);
+		modoButtonListener(modoButton);
+		ledButtonListener(ledButton);
+		contatoButtonListener(contatoButton);
 		sairButtonListener(sairButton);
 	}
 	
@@ -73,21 +76,43 @@ public class MenuMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				new MenuControle();
 				//JFrame window = new JFrame("Controle seu carrinho");
 			}
 		});
 	}
 	
-	void modoButtonListener() {
-		
+	void modoButtonListener(JButton modoButton) {
+		modoButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
-	void ledButtonListener() {
-		
+	void ledButtonListener(JButton ledButton) {
+		ledButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
-	void contatoButtonListener() {
-		
+	void contatoButtonListener(JButton contatoButton) {
+		contatoButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
 	void sairButtonListener(JButton sairButton) {
