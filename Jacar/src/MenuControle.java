@@ -1,13 +1,11 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 public class MenuControle {
-	/* Tamanho da tela principal */
+	/* Tamanho da tela de controle */
 	int height = 300;
-	int width = 350;
+	int width = 360;
 	
 	/* Tamanho dos botões */
 	int buttonWidth = 100;
@@ -29,9 +27,11 @@ public class MenuControle {
 	int labelHeight = 30;
 	
 	public MenuControle() {
+		/* Definindo a janela */
 		JPanel panel = new JPanel();
 		JFrame window = new JFrame("Controle seu carrinho");
 
+		/* Definindo os botões e label */
 		JButton frenteButton = new JButton("Frente");
 		JButton trasButton = new JButton("Trás");
 		JButton esquerdaButton = new JButton("Esquerda");
@@ -39,6 +39,13 @@ public class MenuControle {
 		JButton pareButton = new JButton("Pare");
 		JLabel labelMenu = new JLabel("Pilote seu carrinho: ");
 
+		/* Definindo a barra de menu */
+		JMenuBar barMenu = new JMenuBar();
+		JMenu helpMenu = new JMenu("Ajuda");
+		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
+		helpMenu.add(duvidasMenuItem);
+		barMenu.add(helpMenu);
+		
 		/* Defini alguns padrões no componentes do menu controle */
 		labelMenu.setBounds(labelX, labelY, labelWidth, labelHeight);
 		frenteButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
@@ -54,10 +61,10 @@ public class MenuControle {
 		window.add(esquerdaButton);
 		window.add(direitaButton);
 		window.add(pareButton);
+		window.setJMenuBar(barMenu);
 					
 		/* Defini alguns padrões no menu do controle */
 		window.add(panel, BorderLayout.CENTER);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(height, width);
 		window.setResizable(false);
 		window.setLocationRelativeTo(null);
@@ -69,6 +76,7 @@ public class MenuControle {
 		esquerdaButtonListener(esquerdaButton);
 		direitaButtonListener(direitaButton);
 		pareButtonListener(pareButton);
+		helpMenuItemListener(duvidasMenuItem);
 	}
 	
 	
@@ -118,6 +126,21 @@ public class MenuControle {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+			}
+		});
+	}
+	
+	void helpMenuItemListener(JMenuItem helpMenuItem) {
+		helpMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String message = "• Se você deseja que super mega carrinho vá para frente clique no botão Frente;\n" +
+								 "• Se você deseja que super mega carrinho vá para trás clique no botão Trás;\n" +
+								 "• Se você deseja que super mega carrinho vá para esquerda clique no botão Esquerda;\n" +
+								 "• Se você deseja que super mega carrinho vá para direta clique no botão Direita;\n" +
+								 "• Se você deseja que super mega carrinho pare clique no botão Pare.\n";
+				JOptionPane.showMessageDialog(null, message);
 			}
 		});
 	}

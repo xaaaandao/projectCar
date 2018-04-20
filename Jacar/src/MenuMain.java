@@ -1,14 +1,12 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 public class MenuMain {
 	
 	/* Tamanho da tela principal */
 	int height = 300;
-	int width = 350;
+	int width = 360;
 	
 	/* Tamanho dos botões */
 	int buttonWidth = 100;
@@ -30,8 +28,11 @@ public class MenuMain {
 	int labelHeight = 30;
 		
 	public MenuMain() {
+		/* Definindo a janela */
 		JPanel panel = new JPanel();
 		JFrame window = new JFrame("Project car v2");
+		
+		/* Definindo os botões e label */
 		JButton controleButton = new JButton("Controle");
 		JButton modoButton = new JButton("Modo");
 		JButton ledButton = new JButton("Led");
@@ -39,6 +40,13 @@ public class MenuMain {
 		JButton sairButton = new JButton("Sair");
 		JLabel labelMenu = new JLabel("Escolha uma das opções: ");
 		
+		/* Definindo a barra de menu */
+		JMenuBar barMenu = new JMenuBar();
+		JMenu helpMenu = new JMenu("Ajuda");
+		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
+		helpMenu.add(duvidasMenuItem);
+		barMenu.add(helpMenu);
+				
 		/* Defini alguns padrões no componentes do menu principal */
 		labelMenu.setBounds(labelX, labelY, labelWidth, labelHeight);
 		controleButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
@@ -54,6 +62,7 @@ public class MenuMain {
 		window.add(ledButton);
 		window.add(contatoButton);
 		window.add(sairButton);
+		window.setJMenuBar(barMenu);
 					
 		/* Defini alguns padrões no menu principal */
 		window.add(panel, BorderLayout.CENTER);
@@ -64,20 +73,20 @@ public class MenuMain {
 		window.setVisible(true);
 		
 		/* Chamo os listener */
-		controleButtonListener(controleButton);
+		controleButtonListener(window, controleButton);
 		modoButtonListener(modoButton);
 		ledButtonListener(ledButton);
 		contatoButtonListener(contatoButton);
 		sairButtonListener(sairButton);
+		helpMenuItemListener(duvidasMenuItem);
 	}
 	
-	void controleButtonListener(JButton controleButton) {
+	void controleButtonListener(JFrame window, JButton controleButton) {
 		controleButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new MenuControle();
-				//JFrame window = new JFrame("Controle seu carrinho");
 			}
 		});
 	}
@@ -87,8 +96,7 @@ public class MenuMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				new MenuModo();
 			}
 		});
 	}
@@ -98,8 +106,7 @@ public class MenuMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				new MenuLed();
 			}
 		});
 	}
@@ -120,6 +127,21 @@ public class MenuMain {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(1);
+			}
+		});
+	}
+	
+	void helpMenuItemListener(JMenuItem helpMenuItem) {
+		helpMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String message = "• Se você deseja pilotar o super mega carrinho clique no botão Controle;\n" +
+								 "• Se você deseja selecionar o modo de condução clique no botão Modo;\n" +
+								 "• Se você deseja acender os led do super mega carrinho clique no botão Led;\n" +
+								 "• Se você deseja entrar em contato conosco clique no botão Contato;\n" +
+								 "• Se você deseja sair clique no botão Sair.\n";
+				JOptionPane.showMessageDialog(null, message);
 			}
 		});
 	}
