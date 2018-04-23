@@ -1,42 +1,72 @@
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class MenuControle {
-	/* Tamanho da tela principal */
-	int height = 200;
+	/* Tamanho da tela de controle */
+	int height = 300;
 	int width = 360;
+
+	/* Tamanho dos botões */
+	int buttonWidth = 100;
+	int buttonHeight = 50;
+
+	/* Coordenadas dos botões */
+	int buttonX = 95;
+	int buttonY = 40;
+
+	/* Entre um botão e outro adiciona */
+	int distanceOfButton = 52;
 	
-	/* Linhas e colunas do grid layout */
-	int rows = 5;
-	int columns = 1;
+	/* Coordenadas dos labels */
+	int labelX = 90;
+	int labelY = 10;
 	
+	/* Tamanho dos botões */
+	int labelWidth = 150;
+	int labelHeight = 30;
+
 	public MenuControle() {
-		/* Criando as variáveis do frame, panel, etc */
-		JDialog dialog = new JDialog(new JFrame(), "Pilote o seu carrinho", true);
-		JPanel panel = new JPanel(new GridLayout(rows, columns));
-		
+		/* Criando o JDialog */
+		JDialog dialog = new JDialog(new JFrame(), "Controle o super mega carrinho", true);
+
 		/* Criando as variáveis da barra de menu */
 		JMenuBar barMenu = new JMenuBar();
 		JMenu helpMenu = new JMenu("Ajuda");
 		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
 		helpMenu.add(duvidasMenuItem);
 		barMenu.add(helpMenu);
-			
-		/* Criando as variáveis do botão */
+
+		/* Criando as variáveis da label e dos botões */
+		JLabel labelMenuControle = new JLabel("Pilote seu carrinho: ");
 		JButton frenteButton = new JButton("Frente");
 		JButton reButton = new JButton("Ré");
 		JButton esquerdaButton = new JButton("Esquerda");
 		JButton direitaButton = new JButton("Direita");
-		JButton pareButton = new JButton("Pare");
+		JButton pareButton = new JButton("pare");
+
+		/* Tornando vísivel a label e os botões */
+		labelMenuControle.setVisible(true);
+		frenteButton.setVisible(true);
+		reButton.setVisible(true);
+		esquerdaButton.setVisible(true);
+		direitaButton.setVisible(true);
+		pareButton.setVisible(true);
 		
+		/* Definindo as coordenadas da label e os botões */
+		labelMenuControle.setBounds(labelX, labelY, labelWidth, labelHeight);
+		frenteButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
+		reButton.setBounds(buttonX, buttonY + distanceOfButton, buttonWidth, buttonHeight);
+		esquerdaButton.setBounds(buttonX, buttonY + (2 * distanceOfButton), buttonWidth, buttonHeight);
+		direitaButton.setBounds(buttonX, buttonY + (3 * distanceOfButton), buttonWidth, buttonHeight);
+		pareButton.setBounds(buttonX, buttonY + (4 * distanceOfButton), buttonWidth, buttonHeight);
+
 		/* Adicionando botões no panel */
-		panel.add(frenteButton);
-		panel.add(reButton);
-		panel.add(esquerdaButton);
-		panel.add(direitaButton);
-		panel.add(pareButton);
-		dialog.getContentPane().add(panel, BorderLayout.CENTER);
+		dialog.add(labelMenuControle);
+		dialog.add(frenteButton);
+		dialog.add(reButton);
+		dialog.add(esquerdaButton);
+		dialog.add(direitaButton);
+		dialog.add(pareButton);
 		
 		/* Chamando os listener dos botões */
 		frenteButtonListener(frenteButton);
@@ -48,13 +78,14 @@ public class MenuControle {
 
 		/* Adicionando tamanho, posição, fechar e ficar visível */
 		dialog.setJMenuBar(barMenu);
+		dialog.setLayout(null);
 		dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		dialog.setSize(height, width);
 		dialog.setResizable(false);
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
-	}
-	
+
+	}	
 	
 	void frenteButtonListener(JButton frenteButton) {
 		frenteButton.addActionListener(new ActionListener() {
