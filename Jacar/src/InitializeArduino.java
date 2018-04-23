@@ -46,7 +46,16 @@ public class InitializeArduino {
 		dialog.setSize(height, width);
 		dialog.setResizable(false);
 		dialog.setLocationRelativeTo(null);
-		dialog.setVisible(true);
+		
+		Thread t = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				dialog.setVisible(true);
+			}
+		});
+		t.start();
 		
 		for(int i = minimo; i <= maximo; i++){
 			if(i < 20)
@@ -57,7 +66,13 @@ public class InitializeArduino {
 				labelInitialize.setText("Definindo algumas configurações...");
 			progressBar.setValue(i);
 			progressBar.setStringPainted(true);
-			Thread.sleep(100);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 	}
 }
