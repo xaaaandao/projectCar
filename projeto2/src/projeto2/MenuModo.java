@@ -1,3 +1,5 @@
+package projeto2;
+
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -6,61 +8,61 @@ public class MenuModo {
 	int height = 320;
 	int width = 200;
 
-	/* Tamanho dos botões */
+	/* Tamanho dos botï¿½es */
 	int buttonWidth = 120;
 	int buttonHeight = 50;
 
-	/* Coordenadas dos botões */
+	/* Coordenadas dos botï¿½es */
 	int buttonX = 95;
 	int buttonY = 40;
 
-	/* Entre um botão e outro adiciona */
+	/* Entre um botï¿½o e outro adiciona */
 	int distanceOfButton = 52;
 
 	/* Coordenadas dos labels */
 	int labelX = 65;
 	int labelY = 10;
 
-	/* Tamanho dos botões */
+	/* Tamanho dos botï¿½es */
 	int labelWidth = 200;
 	int labelHeight = 30;
 
 	public MenuModo() {
 		/* Criando o JDialog */
-		JDialog dialog = new JDialog(new JFrame(), "Selecione o modo de condução", true);
+		JDialog dialog = new JDialog(new JFrame(), "Selecione o modo de conduï¿½ï¿½o", true);
 
-		/* Criando as variáveis da barra de menu */
+		/* Criando as variï¿½veis da barra de menu */
 		JMenuBar barMenu = new JMenuBar();
 		JMenu helpMenu = new JMenu("Ajuda");
-		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
+		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dï¿½vidas");
 		helpMenu.add(duvidasMenuItem);
 		barMenu.add(helpMenu);
 
-		/* Criando as variáveis da label e dos botões */
-		JLabel labelMenuModo = new JLabel("Selecione o modo de condução: ");
-		JButton xandaoButton = new JButton("Modo Xandão");
+		/* Criando as variï¿½veis da label e dos botï¿½es */
+		JLabel labelMenuModo = new JLabel("Selecione o modo de conduï¿½ï¿½o: ");
+		JButton xandaoButton = new JButton("Modo Xandï¿½o");
 		JButton dodoButton = new JButton("Modo Dodo");
 
-		/* Tornando vísivel a label e os botões */
+		/* Tornando vï¿½sivel a label e os botï¿½es */
 		labelMenuModo.setVisible(true);
 		xandaoButton.setVisible(true);
 		dodoButton.setVisible(true);
 		
-		/* Definindo as coordenadas da label e os botões */
+		/* Definindo as coordenadas da label e os botï¿½es */
 		labelMenuModo.setBounds(labelX, labelY, labelWidth, labelHeight);
 		xandaoButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
 		dodoButton.setBounds(buttonX, buttonY + distanceOfButton, buttonWidth, buttonHeight);
 
-		/* Adicionando botões no panel */
+		/* Adicionando botï¿½es no panel */
 		dialog.add(labelMenuModo);
 		dialog.add(xandaoButton);
 		dialog.add(dodoButton);
 		
-		/* Chamando os listener dos botões */
+		/* Chamando os listener dos botï¿½es */
 		xandaoButtonListener(xandaoButton);
 		dodoButtonListener(dodoButton);
 		
-		/* Adicionando tamanho, posição, fechar e ficar visível */
+		/* Adicionando tamanho, posiï¿½ï¿½o, fechar e ficar visï¿½vel */
 		dialog.setJMenuBar(barMenu);
 		dialog.setLayout(null);
 		dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -95,8 +97,8 @@ public class MenuModo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String message = "• Se você deseja uma condução que priorize o desempenho clique no botão Modo Xandão;\n"
-						+ "• Se você deseja uma condução que priorize o conforto e o consumo de energia clique no botão Modo Dodo.\n";
+				String message = "ï¿½ Se vocï¿½ deseja uma conduï¿½ï¿½o que priorize o desempenho clique no botï¿½o Modo Xandï¿½o;\n"
+						+ "ï¿½ Se vocï¿½ deseja uma conduï¿½ï¿½o que priorize o conforto e o consumo de energia clique no botï¿½o Modo Dodo.\n";
 				JOptionPane.showMessageDialog(null, message);
 			}
 		});

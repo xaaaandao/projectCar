@@ -1,3 +1,5 @@
+package projeto2;
+
 import javax.swing.*;
 
 public class InitializeArduino {
@@ -17,11 +19,11 @@ public class InitializeArduino {
 	int labelX = 65;
 	int labelY = 10;
 
-	/* Tamanho dos botões */
+	/* Tamanho dos botï¿½es */
 	int labelWidth = 200;
 	int labelHeight = 30;
 	
-	/* Minimo e máximo da barra de progresso */
+	/* Minimo e mï¿½ximo da barra de progresso */
 	int minimo = 0;
 	int maximo = 100;
 	
@@ -29,7 +31,7 @@ public class InitializeArduino {
 		/* Criando o JDialog */
 		JDialog dialog = new JDialog(new JFrame(), "Acenda e apague o Led", true);
 
-		JLabel labelInitialize = new JLabel("Tentando conexão com arduino");
+		JLabel labelInitialize = new JLabel("Tentando conexï¿½o com arduino");
 		JProgressBar progressBar = new JProgressBar(minimo, maximo);
 		
 		labelInitialize.setVisible(true);
@@ -58,12 +60,13 @@ public class InitializeArduino {
 		t.start();
 		
 		for(int i = minimo; i <= maximo; i++){
-			if(i < 20)
+			if(i < 20){
 				labelInitialize.setText("Conectando com arduino...");
-			else if(i < 30)
+                                AcessaArduino acessaArduino;
+                        } else if(i < 30)
 				labelInitialize.setText("Conectado!!!");
 			else
-				labelInitialize.setText("Definindo algumas configurações...");
+				labelInitialize.setText("Definindo algumas configuraï¿½ï¿½es...");
 			progressBar.setValue(i);
 			progressBar.setStringPainted(true);
 			try {

@@ -1,3 +1,5 @@
+package projeto2;
+
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -6,22 +8,22 @@ public class MenuControle {
 	int height = 300;
 	int width = 360;
 
-	/* Tamanho dos botões */
+	/* Tamanho dos botï¿½es */
 	int buttonWidth = 100;
 	int buttonHeight = 50;
 
-	/* Coordenadas dos botões */
+	/* Coordenadas dos botï¿½es */
 	int buttonX = 95;
 	int buttonY = 40;
 
-	/* Entre um botão e outro adiciona */
+	/* Entre um botï¿½o e outro adiciona */
 	int distanceOfButton = 52;
 	
 	/* Coordenadas dos labels */
 	int labelX = 90;
 	int labelY = 10;
 	
-	/* Tamanho dos botões */
+	/* Tamanho dos botï¿½es */
 	int labelWidth = 150;
 	int labelHeight = 30;
 
@@ -29,22 +31,22 @@ public class MenuControle {
 		/* Criando o JDialog */
 		JDialog dialog = new JDialog(new JFrame(), "Controle o super mega carrinho", true);
 
-		/* Criando as variáveis da barra de menu */
+		/* Criando as variï¿½veis da barra de menu */
 		JMenuBar barMenu = new JMenuBar();
 		JMenu helpMenu = new JMenu("Ajuda");
-		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
+		JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dï¿½vidas");
 		helpMenu.add(duvidasMenuItem);
 		barMenu.add(helpMenu);
 
-		/* Criando as variáveis da label e dos botões */
+		/* Criando as variï¿½veis da label e dos botï¿½es */
 		JLabel labelMenuControle = new JLabel("Pilote seu carrinho: ");
 		JButton frenteButton = new JButton("Frente");
-		JButton reButton = new JButton("Ré");
+		JButton reButton = new JButton("Rï¿½");
 		JButton esquerdaButton = new JButton("Esquerda");
 		JButton direitaButton = new JButton("Direita");
 		JButton pareButton = new JButton("pare");
 
-		/* Tornando vísivel a label e os botões */
+		/* Tornando vï¿½sivel a label e os botï¿½es */
 		labelMenuControle.setVisible(true);
 		frenteButton.setVisible(true);
 		reButton.setVisible(true);
@@ -52,7 +54,7 @@ public class MenuControle {
 		direitaButton.setVisible(true);
 		pareButton.setVisible(true);
 		
-		/* Definindo as coordenadas da label e os botões */
+		/* Definindo as coordenadas da label e os botï¿½es */
 		labelMenuControle.setBounds(labelX, labelY, labelWidth, labelHeight);
 		frenteButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
 		reButton.setBounds(buttonX, buttonY + distanceOfButton, buttonWidth, buttonHeight);
@@ -60,7 +62,7 @@ public class MenuControle {
 		direitaButton.setBounds(buttonX, buttonY + (3 * distanceOfButton), buttonWidth, buttonHeight);
 		pareButton.setBounds(buttonX, buttonY + (4 * distanceOfButton), buttonWidth, buttonHeight);
 
-		/* Adicionando botões no panel */
+		/* Adicionando botï¿½es no panel */
 		dialog.add(labelMenuControle);
 		dialog.add(frenteButton);
 		dialog.add(reButton);
@@ -68,7 +70,7 @@ public class MenuControle {
 		dialog.add(direitaButton);
 		dialog.add(pareButton);
 		
-		/* Chamando os listener dos botões */
+		/* Chamando os listener dos botï¿½es */
 		frenteButtonListener(frenteButton);
 		reButtonListener(reButton);
 		esquerdaButtonListener(esquerdaButton);
@@ -76,7 +78,7 @@ public class MenuControle {
 		pareButtonListener(pareButton);
 		helpMenuItemListener(duvidasMenuItem);
 
-		/* Adicionando tamanho, posição, fechar e ficar visível */
+		/* Adicionando tamanho, posiï¿½ï¿½o, fechar e ficar visï¿½vel */
 		dialog.setJMenuBar(barMenu);
 		dialog.setLayout(null);
 		dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -142,11 +144,11 @@ public class MenuControle {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String message = "• Se você deseja que super mega carrinho vá para frente clique no botão Frente;\n" +
-								 "• Se você deseja que super mega carrinho vá de ré clique no botão Ré;\n" +
-								 "• Se você deseja que super mega carrinho vá para esquerda clique no botão Esquerda;\n" +
-								 "• Se você deseja que super mega carrinho vá para direta clique no botão Direita;\n" +
-								 "• Se você deseja que super mega carrinho pare clique no botão Pare.\n";
+				String message = "ï¿½ Se vocï¿½ deseja que super mega carrinho vï¿½ para frente clique no botï¿½o Frente;\n" +
+								 "ï¿½ Se vocï¿½ deseja que super mega carrinho vï¿½ de rï¿½ clique no botï¿½o Rï¿½;\n" +
+								 "ï¿½ Se vocï¿½ deseja que super mega carrinho vï¿½ para esquerda clique no botï¿½o Esquerda;\n" +
+								 "ï¿½ Se vocï¿½ deseja que super mega carrinho vï¿½ para direta clique no botï¿½o Direita;\n" +
+								 "ï¿½ Se vocï¿½ deseja que super mega carrinho pare clique no botï¿½o Pare.\n";
 				JOptionPane.showMessageDialog(null, message);
 			}
 		});
