@@ -9,22 +9,22 @@ public class MenuMain {
     int height = 300;
     int width = 360;
 
-    /* Tamanho dos bot�es */
+    /* Tamanho dos botões */
     int buttonWidth = 100;
     int buttonHeight = 50;
 
-    /* Coordenadas dos bot�es */
+    /* Coordenadas dos botões */
     int buttonX = 95;
     int buttonY = 40;
 
-    /* Entre um bot�o e outro adiciona */
+    /* Entre um botão e outro adiciona */
     int distanceOfButton = 52;
 
     /* Coordenadas dos labels */
     int labelX = 75;
     int labelY = 10;
 
-    /* Tamanho dos bot�es */
+    /* Tamanho dos botões */
     int labelWidth = 150;
     int labelHeight = 30;
 
@@ -47,7 +47,7 @@ public class MenuMain {
         JButton contatoButton = new JButton("Contato");
         JButton sairButton = new JButton("Sair");
 
-        /* Tornando v�sivel a label e os botões */
+        /* Tornando vísivel a label e os botões */
         labelMenu.setVisible(true);
         controleButton.setVisible(true);
         modoButton.setVisible(true);
@@ -63,7 +63,7 @@ public class MenuMain {
         contatoButton.setBounds(buttonX, buttonY + (3 * distanceOfButton), buttonWidth, buttonHeight);
         sairButton.setBounds(buttonX, buttonY + (4 * distanceOfButton), buttonWidth, buttonHeight);
 
-        /* Adicionando bot�es no panel */
+        /* Adicionando botões no panel */
         dialog.add(labelMenu);
         dialog.add(controleButton);
         dialog.add(modoButton);
@@ -71,15 +71,15 @@ public class MenuMain {
         dialog.add(contatoButton);
         dialog.add(sairButton);
 
-        /* Chamando os listener dos bot�es */
-        controleButtonListener(controleButton);
-        modoButtonListener(modoButton);
-        ledButtonListener(ledButton);
+        /* Chamando os listener dos botões */
+        controleButtonListener(controleButton, port);
+        modoButtonListener(modoButton, port);
+        ledButtonListener(ledButton, port);
         contatoButtonListener(contatoButton);
         sairButtonListener(sairButton);
         helpMenuItemListener(duvidasMenuItem);
 
-        /* Adicionando tamanho, posi��o, fechar e ficar vis�vel */
+        /* Adicionando tamanho, posição, fechar e ficar visível */
         dialog.setJMenuBar(barMenu);
         dialog.setLayout(null);
         dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -90,34 +90,34 @@ public class MenuMain {
 
     }
 
-    void controleButtonListener(JButton controleButton) {
+    void controleButtonListener(JButton controleButton, String port) {
         controleButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuControle();
+                new MenuControle(port);
             }
 
         });
     }
 
-    void modoButtonListener(JButton modoButton) {
+    void modoButtonListener(JButton modoButton, String port) {
         modoButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuModo();
+                new MenuModo(port);
             }
 
         });
     }
 
-    void ledButtonListener(JButton ledButton) {
+    void ledButtonListener(JButton ledButton, String port) {
         ledButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuLed();
+                new MenuLed(port);
             }
 
         });
@@ -153,11 +153,11 @@ public class MenuMain {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String message = "� Se voc� deseja pilotar o super mega carrinho clique no bot�o Controle;\n"
-                        + "� Se voc� deseja selecionar o modo de condu��o clique no bot�o Modo;\n"
-                        + "� Se voc� deseja acender os led do super mega carrinho clique no bot�o Led;\n"
-                        + "� Se voc� deseja entrar em contato conosco clique no bot�o Contato;\n"
-                        + "� Se voc� deseja sair clique no bot�o Sair.\n";
+                String message = "• Se você deseja pilotar o super mega carrinho clique no botão Controle;\n"
+                        + "• Se você deseja selecionar o modo de condução clique no botão Modo;\n"
+                        + "• Se você deseja acender os led do super mega carrinho clique no botão Led;\n"
+                        + "• Se você deseja entrar em contato conosco clique no botão Contato;\n"
+                        + "• Se você deseja sair clique no botão Sair.\n";
                 JOptionPane.showMessageDialog(null, message);
             }
 
