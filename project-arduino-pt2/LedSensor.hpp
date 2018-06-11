@@ -13,7 +13,7 @@
 #include <Arduino.h>
 
 /* O led está conectado na porta digital 32 do arduino */
-#define pinLed 11 
+#define pinLed 32 
 
 /* O sensor de luminosidade está conectado na porta analógica 7 do arduino */
 #define pinSensor 7 

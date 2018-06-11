@@ -24,16 +24,17 @@ void loop(){
   if(Serial.available()){
     String input = Serial.readString();
     /* Liga o led */
-    if(input.compareTo("onLed") == 0)
+    if(input.compareTo("onLed") == 0){
+      Serial.println("serial");
       ledSensor.onLed();
     /* Desliga o led */
-    else if(input.compareTo("offLed") == 0)
+    } else if(input.compareTo("offLed") == 0)
       ledSensor.offLed();
     /* Ativa o modo dodo*/
     else if(input.compareTo("dodoModo") == 0)
       wheels.dodoMode();
     /* Ativa o modo xandão */
-    else if(input.compareTo("xandoModo") == 0)
+    else if(input.compareTo("xandaoModo") == 0)
       wheels.xandaoMode();
     /* Faz o carro ir para frente */
     else if(input.compareTo("frenteCarro") == 0)
@@ -43,7 +44,8 @@ void loop(){
       wheels.wheelsBack();
     /* Faz o carro ir para esquerda */
     else if(input.compareTo("esquerdaCarro") == 0)
-      Serial.print("1");/* Dodo verificar qual sentindo está indo */
+      //Serial.print("1");/* Dodo verificar qual sentindo está indo */
+      wheels.wheelsRight();
     /* Faz o carro ir para direita */
     else if(input.compareTo("direitaCarro") == 0)
       Serial.print("1");/* Dodo verificar qual sentindo está indo */

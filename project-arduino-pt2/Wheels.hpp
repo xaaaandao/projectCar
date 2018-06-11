@@ -32,7 +32,8 @@ class Wheels{
     void wheelsFront(void);
     void wheelsStop(void);
     void wheelsBack(void);
-    void wheelsRotate(void);
+    void wheelsRight(void);
+    void wheelsLeft(void);
     void xandaoMode(void);
     void dodoMode(void);
     void speedStop(void);

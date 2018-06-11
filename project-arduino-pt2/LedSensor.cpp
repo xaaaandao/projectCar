@@ -14,7 +14,7 @@
 */
 void LedSensor :: initializeLed(void){
   pinMode(pinLed, OUTPUT);
-  offLed(); /* Se não inicializa ele desliga, ele liga bem fraco */
+  //offLed(); /* Se não inicializa ele desliga, ele liga bem fraco */
 }
 
 /**
