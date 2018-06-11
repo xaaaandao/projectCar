@@ -1,7 +1,13 @@
+/* Para comparar a serial */
 #include <WString.h>
-#include "LedSensor.hpp"
 
+/* Bibliotecas nossas */
+#include "LedSensor.hpp"
+#include "Wheels.hpp"
+
+/* Variáveis globais */
 LedSensor ledSensor;
+Wheels wheels;
 
 void setup(){
   /* Inicializa o serial */
@@ -9,6 +15,9 @@ void setup(){
 
   /* Inicializa o LED */
   ledSensor.initializeLed();
+
+  /* Iniciliza o carrinho no modo Dodo */ 
+  wheels.dodoMode();
 }
 
 void loop(){
@@ -20,24 +29,25 @@ void loop(){
     /* Desliga o led */
     else if(input.compareTo("offLed") == 0)
       ledSensor.offLed();
-//      digitalWrite(pinled, LOW);
     /* Ativa o modo dodo*/
     else if(input.compareTo("dodoModo") == 0)
-      Serial.print("1");
+      wheels.dodoMode();
     /* Ativa o modo xandão */
     else if(input.compareTo("xandoModo") == 0)
-      Serial.print("1");
+      wheels.xandaoMode();
     /* Faz o carro ir para frente */
     else if(input.compareTo("frenteCarro") == 0)
-      Serial.print("1");
+      wheels.wheelsFront();
     /* Faz o carro ir para trás */
     else if(input.compareTo("reCarro") == 0)
-      Serial.print("1");
+      wheels.wheelsBack();
     /* Faz o carro ir para esquerda */
     else if(input.compareTo("esquerdaCarro") == 0)
-      Serial.print("1");
+      Serial.print("1");/* Dodo verificar qual sentindo está indo */
     /* Faz o carro ir para direita */
     else if(input.compareTo("direitaCarro") == 0)
-      Serial.print("1");    
+      Serial.print("1");/* Dodo verificar qual sentindo está indo */
+    else if(input.compareTo("pareCarro") == 0)
+      wheels.wheelsStop();    
   }
 }
