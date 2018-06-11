@@ -63,9 +63,9 @@ public class InitializeArduino {
         
         for (int i = minimo; i <= maximo; i++) {
             if (i < 35) {
-                labelInitialize.setText("Procurando a porta...");
+                labelInitialize.setText("Procurando a porta do arduino...");
             } else if (i < 65) {
-                labelInitialize.setText("Porta encontrada: " + acessaArduino.getPortaSelecionada());
+                labelInitialize.setText("Porta encontrada! porta é: " + acessaArduino.getPortaSelecionada());
             } else {
                 labelInitialize.setText("Terminando contato com arduino...");
             }
