@@ -34,9 +34,6 @@ void Wheels :: wheelsFront(void){
 * @return void, não retorna nada.
 */
 void Wheels :: wheelsStop(void){
-    /* Velocidade recebe o valor mínimo */
-     speedStop();
-
      /* Motores param de funcionar */
      motor1.run(RELEASE); 
      motor2.run(RELEASE);
@@ -70,12 +67,23 @@ void Wheels :: wheelsBack(void){
 * @param void, nenhum parâmetro.
 * @return void, não retorna nada.
 */
-void Wheels :: wheelsRotate(void){
+void Wheels :: wheelsRight(void){
     /* Metade dos motores rotacionam no sentido anti-horário e a outra rotaciona no sentido horário */
     motor1.run(FORWARD); 
     motor2.run(FORWARD);
     motor3.run(BACKWARD);
     motor4.run(BACKWARD);
+
+    /* Dá uma atraso de quatro segundos */
+    delay(4000);
+}
+
+void Wheels :: wheelsLeft(void){
+    /* Metade dos motores rotacionam no sentido anti-horário e a outra rotaciona no sentido horário */
+    motor1.run(BACKWARD); 
+    motor2.run(BACKWARD);
+    motor3.run(FORWARD);
+    motor4.run(FORWARD);
 
     /* Dá uma atraso de quatro segundos */
     delay(4000);
