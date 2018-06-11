@@ -28,7 +28,7 @@ public class MenuControle {
     int labelWidth = 150;
     int labelHeight = 30;
 
-    public MenuControle(String port) {
+    public MenuControle(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Controle o super mega carrinho", true);
 
@@ -72,11 +72,11 @@ public class MenuControle {
         dialog.add(pareButton);
 
         /* Chamando os listener dos botões */
-        frenteButtonListener(frenteButton, port);
-        reButtonListener(reButton, port);
-        esquerdaButtonListener(esquerdaButton, port);
-        direitaButtonListener(direitaButton, port);
-        pareButtonListener(pareButton, port);
+        frenteButtonListener(frenteButton, acessaArduino);
+        reButtonListener(reButton, acessaArduino);
+        esquerdaButtonListener(esquerdaButton, acessaArduino);
+        direitaButtonListener(direitaButton, acessaArduino);
+        pareButtonListener(pareButton, acessaArduino);
         helpMenuItemListener(duvidasMenuItem);
 
         /* Adicionando tamanho, posição, fechar e ficar visível */
@@ -90,52 +90,52 @@ public class MenuControle {
 
     }
 
-    void frenteButtonListener(JButton frenteButton, String port) {
+    void frenteButtonListener(JButton frenteButton, AcessaArduino acessaArduino) {
         frenteButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "frenteCarro");                
             }
         });
     }
 
-    void reButtonListener(JButton trasButton, String port) {
+    void reButtonListener(JButton trasButton, AcessaArduino acessaArduino) {
         trasButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "reCarro");
             }
         });
     }
 
-    void esquerdaButtonListener(JButton esquerdaButton, String port) {
+    void esquerdaButtonListener(JButton esquerdaButton, AcessaArduino acessaArduino) {
         esquerdaButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "esquerdaCarro");
             }
         });
     }
 
-    void direitaButtonListener(JButton direitaButton, String port) {
+    void direitaButtonListener(JButton direitaButton, AcessaArduino acessaArduino) {
         direitaButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "direitaCarro");
             }
         });
     }
 
-    void pareButtonListener(JButton pareButton, String port) {
+    void pareButtonListener(JButton pareButton, AcessaArduino acessaArduino) {
         pareButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "pareCarro");
             }
         });
     }

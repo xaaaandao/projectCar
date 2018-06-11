@@ -28,7 +28,7 @@ public class MenuMain {
     int labelWidth = 150;
     int labelHeight = 30;
 
-    public MenuMain(String port) {
+    public MenuMain(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Project car v2", true);
 
@@ -72,9 +72,9 @@ public class MenuMain {
         dialog.add(sairButton);
 
         /* Chamando os listener dos botões */
-        controleButtonListener(controleButton, port);
-        modoButtonListener(modoButton, port);
-        ledButtonListener(ledButton, port);
+        controleButtonListener(controleButton, acessaArduino);
+        modoButtonListener(modoButton, acessaArduino);
+        ledButtonListener(ledButton, acessaArduino);
         contatoButtonListener(contatoButton);
         sairButtonListener(sairButton);
         helpMenuItemListener(duvidasMenuItem);
@@ -90,34 +90,34 @@ public class MenuMain {
 
     }
 
-    void controleButtonListener(JButton controleButton, String port) {
+    void controleButtonListener(JButton controleButton, AcessaArduino acessaArduino) {
         controleButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuControle(port);
+                new MenuControle(acessaArduino);
             }
 
         });
     }
 
-    void modoButtonListener(JButton modoButton, String port) {
+    void modoButtonListener(JButton modoButton, AcessaArduino acessaArduino) {
         modoButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuModo(port);
+                new MenuModo(acessaArduino);
             }
 
         });
     }
 
-    void ledButtonListener(JButton ledButton, String port) {
+    void ledButtonListener(JButton ledButton, AcessaArduino acessaArduino) {
         ledButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuLed(port);
+                new MenuLed(acessaArduino);
             }
 
         });

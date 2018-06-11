@@ -79,6 +79,6 @@ public class InitializeArduino {
             }
         }
         dialog.dispose();
-        MenuMain menuMain = new MenuMain(acessaArduino.getPortaSelecionada());
+        MenuMain menuMain = new MenuMain(acessaArduino);
     }
 }

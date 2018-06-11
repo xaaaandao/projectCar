@@ -28,7 +28,7 @@ public class MenuLed {
     int labelWidth = 200;
     int labelHeight = 30;
 
-    public MenuLed(String port) {
+    public MenuLed(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Acenda e apague o Led", true);
 
@@ -60,8 +60,8 @@ public class MenuLed {
         dialog.add(apagarButton);
 
         /* Chamando os listener dos botões */
-        acenderButtonListener(acenderButton, port);
-        apagarButtonListener(apagarButton, port);
+        acenderButtonListener(acenderButton, acessaArduino);
+        apagarButtonListener(apagarButton, acessaArduino);
 
         /* Adicionando tamanho, posição, fechar e ficar visível */
         dialog.setJMenuBar(barMenu);
@@ -73,22 +73,22 @@ public class MenuLed {
         dialog.setVisible(true);
     }
 
-    void acenderButtonListener(JButton acenderButton, String port) {
+    void acenderButtonListener(JButton acenderButton, AcessaArduino acessaArduino) {
         acenderButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "onLed");
             }
         });
     }
 
-    void apagarButtonListener(JButton apagarButton, String port) {
+    void apagarButtonListener(JButton apagarButton, AcessaArduino acessaArduino) {
         apagarButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "offLed");
             }
         });
     }

@@ -28,9 +28,9 @@ public class MenuModo {
     int labelWidth = 200;
     int labelHeight = 30;
 
-    public MenuModo(String port) {
+    public MenuModo(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
-        JDialog dialog = new JDialog(new JFrame(), "Selecione o modo de condu��o", true);
+        JDialog dialog = new JDialog(new JFrame(), "Selecione o modo de condução", true);
 
         /* Criando as variáveis da barra de menu */
         JMenuBar barMenu = new JMenuBar();
@@ -60,8 +60,8 @@ public class MenuModo {
         dialog.add(dodoButton);
 
         /* Chamando os listener dos botões */
-        xandaoButtonListener(xandaoButton, port);
-        dodoButtonListener(dodoButton, port);
+        xandaoButtonListener(xandaoButton, acessaArduino);
+        dodoButtonListener(dodoButton, acessaArduino);
 
         /* Adicionando tamanho, posição, fechar e ficar visível */
         dialog.setJMenuBar(barMenu);
@@ -73,22 +73,22 @@ public class MenuModo {
         dialog.setVisible(true);
     }
 
-    void xandaoButtonListener(JButton xandaoButton, String port) {
+    void xandaoButtonListener(JButton xandaoButton, AcessaArduino acessaArduino) {
         xandaoButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "xandaoModo");
             }
         });
     }
 
-    void dodoButtonListener(JButton dodoButton, String port) {
+    void dodoButtonListener(JButton dodoButton, AcessaArduino acessaArduino) {
         dodoButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "dodoModo");
             }
         });
     }
