@@ -28,12 +28,13 @@ void setup(){
 void loop(){
   if(Serial.available()){
     String input = Serial.readString();
-    //Manda o valor do sensor de luminosidade e ultrasonico
+    //Manda o valor do sensord luminosidadee  e ultrasonico
     /* Liga o led */
-    if(input.compareTo("onLed") == 0)
+    if(input.compareTo("onLed") == 0){
       ledSensor.onLed();
+      Serial.println("231321");
     /* Desliga o led */
-    else if(input.compareTo("offLed") == 0)
+    } else if(input.compareTo("offLed") == 0)
       ledSensor.offLed();
     /* Ativa o modo dodo*/
     else if(input.compareTo("dodoModo") == 0)
