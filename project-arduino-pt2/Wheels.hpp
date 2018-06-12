@@ -22,9 +22,9 @@
 #define WHEEL_FOUR 4
 
 /* Definição da velocidade */
-#define SPEED_MAX 0xFF
-#define SPEED_NORMAL 0x80
-#define SPEED_STOPPED 0x00
+#define SPEED_MAX 0xFF /* 255 */
+#define SPEED_NORMAL 0xC8 /* 200 */
+#define SPEED_STOPPED 0x00 /* 000 */
 
 class Wheels{
 	public:

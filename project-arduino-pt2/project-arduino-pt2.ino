@@ -3,10 +3,12 @@
 
 /* Bibliotecas nossas */
 #include "LedSensor.hpp"
+#include "UltrasonicSensor.hpp"
 #include "Wheels.hpp"
 
 /* Variáveis globais */
 LedSensor ledSensor;
+UltrasonicSensor ultrasonicSensor;
 Wheels wheels;
 
 void setup(){
@@ -18,17 +20,20 @@ void setup(){
 
   /* Iniciliza o carrinho no modo Dodo */ 
   wheels.dodoMode();
+
+  /* Inicializa o sensor ultrasônico */
+  ultrasonicSensor.initializeUltrasonic();
 }
 
 void loop(){
   if(Serial.available()){
     String input = Serial.readString();
+    //Manda o valor do sensor de luminosidade e ultrasonico
     /* Liga o led */
-    if(input.compareTo("onLed") == 0){
-      Serial.println("serial");
+    if(input.compareTo("onLed") == 0)
       ledSensor.onLed();
     /* Desliga o led */
-    } else if(input.compareTo("offLed") == 0)
+    else if(input.compareTo("offLed") == 0)
       ledSensor.offLed();
     /* Ativa o modo dodo*/
     else if(input.compareTo("dodoModo") == 0)
@@ -44,11 +49,10 @@ void loop(){
       wheels.wheelsBack();
     /* Faz o carro ir para esquerda */
     else if(input.compareTo("esquerdaCarro") == 0)
-      //Serial.print("1");/* Dodo verificar qual sentindo está indo */
       wheels.wheelsRight();
     /* Faz o carro ir para direita */
     else if(input.compareTo("direitaCarro") == 0)
-      Serial.print("1");/* Dodo verificar qual sentindo está indo */
+      wheels.wheelsLeft();
     else if(input.compareTo("pareCarro") == 0)
       wheels.wheelsStop();    
   }

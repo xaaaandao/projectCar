@@ -16,7 +16,7 @@
 #define pinLed 32 
 
 /* O sensor de luminosidade está conectado na porta analógica 7 do arduino */
-#define pinSensor 7 
+#define pinSensor 6 
 
 class LedSensor{
   public:
