@@ -22,14 +22,19 @@ public class ValuesOfSensor implements Runnable{
     
     @Override
     public void run() {
+        int valueUltrasonic, valueLed;
         while(true){
             /* Recebe o dado vindo do arduino */
             String value = this.acessaArduino.getDadosArduino();
             String valuesSensor[] = value.split(" ");
             
             /* Dá um split para pegar o valor do sensor ultrasônico e sensor de luminosidade */
-            int valueUltrasonic = Integer.parseInt(valuesSensor[0]);
-            int valueLed = Integer.parseInt(valuesSensor[1]);            
+            valueUltrasonic = Integer.parseInt(valuesSensor[0]);
+            //System.out.println(valueUltrasonic);
+            /*if(valueUltrasonic < 10){ 
+                this.acessaArduino.setDataToArduino(this.acessaArduino.getSerialPort(), "pareCarro");
+            }*/
+            valueLed = Integer.parseInt(valuesSensor[1]);            
             
             /* Pega a hora para inserir no banco */
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
