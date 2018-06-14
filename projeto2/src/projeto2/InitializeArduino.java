@@ -79,6 +79,9 @@ public class InitializeArduino {
             }
         }
         dialog.dispose();
+        Thread getValuess = new Thread(new ValuesOfSensor(acessaArduino));
+        getValuess.start();
         MenuMain menuMain = new MenuMain(acessaArduino);
+        
     }
 }

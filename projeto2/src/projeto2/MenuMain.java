@@ -29,6 +29,7 @@ public class MenuMain {
     int labelHeight = 30;
 
     public MenuMain(AcessaArduino acessaArduino) {
+        //System.out.println(acessaArduino.getDadosArduino());
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Project car v2", true);
 

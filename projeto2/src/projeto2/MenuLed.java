@@ -81,13 +81,6 @@ public class MenuLed {
             @Override
             public void actionPerformed(ActionEvent e) {
                 acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "onLed");
-                try {
-                    Thread.sleep(2000);
-                    if(!acessaArduino.getDadosArduino().isEmpty())
-                        System.out.println("d:"+acessaArduino.getDadosArduino());
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(MenuLed.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }
         });
     }
