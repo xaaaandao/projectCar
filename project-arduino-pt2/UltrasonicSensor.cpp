@@ -47,10 +47,4 @@ long UltrasonicSensor :: readUltrasonicSensor(void){
   return (duracao / 2) / 29.1;
 }
 
-void UltrasonicSensor :: objectClose(void){
-  long distancia = readUltrasonicSensor();
-  Wheels wheels;
-  if(distancia < 10)
-    wheels.wheelsStop();  
-}
 

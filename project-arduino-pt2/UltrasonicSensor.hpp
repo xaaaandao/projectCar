@@ -12,8 +12,6 @@
 /* Biblioteca para utilizar funções e define como: pinMode, OUTPUT */
 #include <Arduino.h>
 
-#include "Wheels.hpp"
-
 /* É o pino que envia o sinal */
 #define pinTrigger 44
 
@@ -26,7 +24,6 @@ class UltrasonicSensor{
     /* Protótipo dos métodos */
     void initializeUltrasonic(void);
     long readUltrasonicSensor(void);
-    void objectClose(void);
 };
 
 #endif /* ULTRASONICSENSOR_H */

@@ -44,3 +44,5 @@ void LedSensor :: offLed(void){
 int LedSensor :: readLedSensor(void){
   return analogRead(pinSensor);
 }
+
+
