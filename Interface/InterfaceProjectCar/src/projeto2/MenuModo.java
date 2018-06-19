@@ -7,7 +7,7 @@ public class MenuModo {
 
     /* Tamanho da tela principal */
     int height = 320;
-    int width = 200;
+    int width = 260;
 
     /* Tamanho dos botões */
     int buttonWidth = 120;
@@ -35,33 +35,38 @@ public class MenuModo {
         /* Criando as variáveis da barra de menu */
         JMenuBar barMenu = new JMenuBar();
         JMenu helpMenu = new JMenu("Ajuda");
-        JMenuItem duvidasMenuItem = new JMenuItem("Tire suas d�vidas");
+        JMenuItem duvidasMenuItem = new JMenuItem("Tire suas dúvidas");
         helpMenu.add(duvidasMenuItem);
         barMenu.add(helpMenu);
 
         /* Criando as variáveis da label e dos botões */
-        JLabel labelMenuModo = new JLabel("Selecione o modo de condu��o: ");
-        JButton xandaoButton = new JButton("Modo Xand�o");
+        JLabel labelMenuModo = new JLabel("Selecione o modo de condução: ");
+        JButton xandaoButton = new JButton("Modo Xandão");
         JButton dodoButton = new JButton("Modo Dodo");
+        JButton autonomoButton = new JButton("Modo Auto");
 
         /* Tornando vísivel a label e os botões */
         labelMenuModo.setVisible(true);
         xandaoButton.setVisible(true);
         dodoButton.setVisible(true);
+        autonomoButton.setVisible(true);
 
         /* Definindo as coordenadas da label e os botões */
         labelMenuModo.setBounds(labelX, labelY, labelWidth, labelHeight);
         xandaoButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
         dodoButton.setBounds(buttonX, buttonY + distanceOfButton, buttonWidth, buttonHeight);
+        autonomoButton.setBounds(buttonX, buttonY + (2 * distanceOfButton), buttonWidth, buttonHeight);
 
         /* Adicionando botões no panel */
         dialog.add(labelMenuModo);
         dialog.add(xandaoButton);
         dialog.add(dodoButton);
+        dialog.add(autonomoButton);
 
         /* Chamando os listener dos botões */
         xandaoButtonListener(xandaoButton, acessaArduino);
         dodoButtonListener(dodoButton, acessaArduino);
+        autonomoButtonListener(autonomoButton, acessaArduino);
 
         /* Adicionando tamanho, posição, fechar e ficar visível */
         dialog.setJMenuBar(barMenu);
@@ -92,6 +97,16 @@ public class MenuModo {
             }
         });
     }
+    
+    void autonomoButtonListener(JButton autonomoButton, AcessaArduino acessaArduino) {
+        autonomoButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "autonomo");
+            }
+        });
+    }
 
     void helpMenuItemListener(JMenuItem helpMenuItem) {
         helpMenuItem.addActionListener(new ActionListener() {
@@ -104,4 +119,6 @@ public class MenuModo {
             }
         });
     }
+    
+    
 }
