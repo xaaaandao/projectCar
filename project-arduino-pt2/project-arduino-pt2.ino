@@ -27,11 +27,13 @@ void setup() {
   /* Inicializa o sensor ultrasônico */
   ultrasonicSensor.initializeUltrasonic();
 
+  /* Como modo padrão é definido como modo autônomo */
   isAutonomo = true;
 }
 
 void loop() {
   Serial.println(String(ultrasonicSensor.readUltrasonicSensor()) + " " + ledSensor.readLedSensor());
+  /* Se a serial está disponível */
   if (Serial.available()) {
     String input = Serial.readString();
     Serial.println(String(ultrasonicSensor.readUltrasonicSensor()) + " " + ledSensor.readLedSensor());
@@ -59,18 +61,24 @@ void loop() {
     /* Faz o carro ir para direita */
     else if (input.compareTo("direitaCarro") == 0)
       wheels.wheelsLeft();
+    /* Faz o carro parar */
     else if (input.compareTo("pareCarro") == 0)
       wheels.wheelsStop();
+    /* Ativa modo autônomo */
     else if (input.compareTo("autonomo") == 0){
+      /* Se tá ativo o modo autônomo */
       if (isAutonomo){
+      	/* Desativa o modo autônomo e para o carro */
         isAutonomo = false;
         wheels.wheelsStop();
       } else {
+        /* Ativa o modo autônomo e o carro anda */
         isAutonomo = true;
         mode.isAutoPilot(ledSensor, ultrasonicSensor, wheels);
       }
     }
   }
+  /* Se o modo autônomo tá ativado o carro anda */
   if (isAutonomo) {
     mode.isAutoPilot(ledSensor, ultrasonicSensor, wheels);
   }

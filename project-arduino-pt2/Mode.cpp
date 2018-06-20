@@ -1,12 +1,21 @@
 #include "Mode.hpp"
 
 /**
-* Autor: Clodoaldo Basaglia da Fonseca
-* Descrição: implementação dos métodos relacionados ao sensor ultrasônico.
-* Data de criação: 04/04/2018
-* Data de atualização: 06/04/2018
+* Autor: Alexandre Yuji Kajihara
+* Descrição: implementação do método que deixa o carro no modo autônomo.
+* Data de criação: 18/06/2018
+* Data de atualização: 18/06/2018
 **/
 
+/**
+* O método isAutoPilot(LedSensor ledSensor, UltrasonicSensor ultrasonicSensor, Wheels wheels), basicamente irá funcionar sozinho
+* irá para frente, e quando encontrar obstáculos irá dar ré e girar o carrinho. Além disso, quando a sensor de luminosidade está abaixo
+* do 250, ele irá acender o led.
+* @param ledSensor, variável da classe LedSensor que lê o sensor de luminosidade e acender o led.
+* @param ultrasonicSensor, variável da classe UltrasonicSensor que lê o sensor de ultrasônico.
+* @param wheels, variável da classe Wheels que rotaciona as rodas do carro.
+* @return void, não retorna nada.
+*/
 void Mode :: isAutoPilot(LedSensor ledSensor, UltrasonicSensor ultrasonicSensor, Wheels wheels){
   /* Faz a leitura do sensor de distância */
   long distancia = ultrasonicSensor.readUltrasonicSensor();
