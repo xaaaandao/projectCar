@@ -3,8 +3,15 @@ package projeto2;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Autor: Alexandre Yuji Kajihara
+ * Descrição: classe de interface gráfica com os botões que acionam os modos de condução.
+ * Data de criação: 20/06/2018
+ * Data de atualização: 20/06/2018
+ */
 public class MenuModo {
 
+    /* Atributos */
     /* Tamanho da tela principal */
     int height = 320;
     int width = 260;
@@ -28,6 +35,12 @@ public class MenuModo {
     int labelWidth = 200;
     int labelHeight = 30;
 
+    /**
+     * O construtor MenuModo(AcessaArduino acessaArduino), é a classe que cria a interface 
+     * gráfica com os botões, as labels e a barra de menu.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return é um construtor.
+     */
     public MenuModo(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Selecione o modo de condução", true);
@@ -78,6 +91,13 @@ public class MenuModo {
         dialog.setVisible(true);
     }
 
+    /**
+     * O método xandaoButtonListener(JButton xandaoButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado aciona o modo de condução xandão.
+     * @param xandaoButton, é o botão que aciona o modo xandão de condução.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void xandaoButtonListener(JButton xandaoButton, AcessaArduino acessaArduino) {
         xandaoButton.addActionListener(new ActionListener() {
 
@@ -88,6 +108,13 @@ public class MenuModo {
         });
     }
 
+    /**
+     * O método dodoButtonListener(JButton dodoButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado aciona o modo de condução xandão.
+     * @param dodoButton, é o botão que aciona o modo dodo de condução.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void dodoButtonListener(JButton dodoButton, AcessaArduino acessaArduino) {
         dodoButton.addActionListener(new ActionListener() {
 
@@ -98,6 +125,13 @@ public class MenuModo {
         });
     }
     
+    /**
+     * O método autonomoButtonListener(JButton autonomoButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado aciona o modo de condução autônomo.
+     * @param autonomoButton, é o botão que aciona o modo dodo de condução.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void autonomoButtonListener(JButton autonomoButton, AcessaArduino acessaArduino) {
         autonomoButton.addActionListener(new ActionListener() {
 
@@ -108,6 +142,12 @@ public class MenuModo {
         });
     }
 
+    /**
+     * O método helpMenuItemListener(JMenuItem helpMenuItem), é o listener do botão
+     * quando clicado acontece a abertura de outra interface gráfica da barra da menu.
+     * @param helpMenuItem, é o botão presente nessa interface gráfica da barra de menu.
+     * @return void, ou seja, nada.
+     */
     void helpMenuItemListener(JMenuItem helpMenuItem) {
         helpMenuItem.addActionListener(new ActionListener() {
 

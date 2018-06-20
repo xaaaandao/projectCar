@@ -1,25 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto2;
 
 import java.text.*;
 import java.util.*;
 
 /**
- *
- * @author suporte
+ * Autor: Alexandre Yuji Kajihara
+ * Descrição: classe que é uma thread que fica recebendo os dados vindo do arduino.
+ * Data de criação: 20/06/2018
+ * Data de atualização: 20/06/2018
  */
 public class ValuesOfSensor implements Runnable{
 
+    /* Atributos */
     AcessaArduino acessaArduino;
 
+    /**
+     * O construtor ValuesOfSensor(AcessaArduino acessaArduino), é a classe que 
+     * faz o parâmetro virar atributo.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return é um construtor.
+     */
     public ValuesOfSensor(AcessaArduino acessaArduino) {
         this.acessaArduino = acessaArduino;
     }
     
+    /**
+     * O método run(), é uma thread que fica recebendo os dados vindo do arduino.
+     * @param nenhum parâmetro.
+     * @return void, ou seja, nada.
+     */
     @Override
     public void run() {
         int valueUltrasonic, valueLed;

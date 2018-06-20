@@ -3,8 +3,16 @@ package projeto2;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Autor: Alexandre Yuji Kajihara
+ * Descrição: classe de interface gráfica com os botões frente, esquerda, trás,
+ * ré e pare o carro.
+ * Data de criação: 20/06/2018
+ * Data de atualização: 20/06/2018
+ */
 public class MenuControle {
 
+    /* Atributos */
     /* Tamanho da tela de controle */
     int height = 300;
     int width = 360;
@@ -28,6 +36,12 @@ public class MenuControle {
     int labelWidth = 150;
     int labelHeight = 30;
 
+    /**
+     * O construtor MenuControle(AcessaArduino acessaArduino), é a classe que cria a interface 
+     * gráfica com os botões, as labels e a barra de menu.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return é um construtor.
+     */
     public MenuControle(AcessaArduino acessaArduino) {
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Controle o super mega carrinho", true);
@@ -90,6 +104,13 @@ public class MenuControle {
 
     }
 
+    /**
+     * O método frenteButtonListener(JButton frenteButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado faz o carrinho ir para frente.
+     * @param frenteButton, é o botão que faz o carrinho ir para frente.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void frenteButtonListener(JButton frenteButton, AcessaArduino acessaArduino) {
         frenteButton.addActionListener(new ActionListener() {
 
@@ -100,6 +121,13 @@ public class MenuControle {
         });
     }
 
+    /**
+     * O método reButtonListener(JButton trasButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado faz o carrinho ir para trás.
+     * @param trasButton, é o botão que faz o carrinho ir para trás.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void reButtonListener(JButton trasButton, AcessaArduino acessaArduino) {
         trasButton.addActionListener(new ActionListener() {
 
@@ -109,7 +137,14 @@ public class MenuControle {
             }
         });
     }
-
+    
+    /**
+     * O método esquerdaButtonListener(JButton esquerdaButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado faz o carrinho ir para esquerda.
+     * @param esquerdaButton, é o botão que faz o carrinho ir para esquerda.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void esquerdaButtonListener(JButton esquerdaButton, AcessaArduino acessaArduino) {
         esquerdaButton.addActionListener(new ActionListener() {
 
@@ -120,6 +155,13 @@ public class MenuControle {
         });
     }
 
+    /**
+     * O método direitaButtonListener(JButton direitaButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado faz o carrinho ir para direita.
+     * @param direitaButton, é o botão que faz o carrinho ir para direita.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void direitaButtonListener(JButton direitaButton, AcessaArduino acessaArduino) {
         direitaButton.addActionListener(new ActionListener() {
 
@@ -130,6 +172,13 @@ public class MenuControle {
         });
     }
 
+    /**
+     * O método pareButtonListener(JButton pareButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado faz o carrinho parar.
+     * @param pareButton, é o botão que faz o carrinho parar.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void pareButtonListener(JButton pareButton, AcessaArduino acessaArduino) {
         pareButton.addActionListener(new ActionListener() {
 
@@ -140,6 +189,12 @@ public class MenuControle {
         });
     }
 
+    /**
+     * O método helpMenuItemListener(JMenuItem helpMenuItem), é o listener do botão
+     * quando clicado acontece a abertura de outra interface gráfica da barra da menu.
+     * @param helpMenuItem, é o botão presente nessa interface gráfica da barra de menu.
+     * @return void, ou seja, nada.
+     */
     void helpMenuItemListener(JMenuItem helpMenuItem) {
         helpMenuItem.addActionListener(new ActionListener() {
 

@@ -15,14 +15,16 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.TooManyListenersException;
 
+/**
+ * Classe pronta cedida pelo professor para conectar o java com a serial
+ */
+
 public class AcessaArduino extends Observable implements SerialPortEventListener {
 
     private String portaSelecionada;
     private String tempString = "";
     SerialPort serialPort;
-    /**
-     * The port we're normally going to use.
-     */
+    /* The port we're normally going to use. */
     private static final String PORT_NAMES[] = {
         // Mac OS X
         "serial-A9007UX1",
@@ -32,23 +34,20 @@ public class AcessaArduino extends Observable implements SerialPortEventListener
         // windows
         "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "COM10", "COM11", "COM12", "COM13"
     };
-    /**
-     * Buffered input stream from the port
-     */
+    
+    /* Buffered input stream from the port */
     private BufferedReader input;
-    /**
-     * The output stream to the port
-     */
+    
+    /* The output stream to the port */
     private OutputStream output;
-    /**
-     * Milliseconds to block while waiting for port open
-     */
+    
+    /* Milliseconds to block while waiting for port open */
     private static final int TIME_OUT = 2000;
-    /**
-     * Default bits per second for COM port.
-     */
+    
+    /* Default bits per second for COM port. */
     private static final int DATA_RATE = 9600;
 
+    /* Construtor */
     public AcessaArduino(Observer observador) {
         addObserver(observador);
         initialize();

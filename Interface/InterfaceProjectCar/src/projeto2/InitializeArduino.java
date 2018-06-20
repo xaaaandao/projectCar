@@ -2,8 +2,15 @@ package projeto2;
 
 import javax.swing.*;
 
+/**
+ * Autor: Alexandre Yuji Kajihara
+ * Descrição: classe de interface gráfica que mostra a barrade progresso.
+ * Data de criação: 20/06/2018
+ * Data de atualização: 20/06/2018
+ */
 public class InitializeArduino {
 
+    /* Atributos */
     /* Tamanho da tela principal */
     int height = 320;
     int width = 140;
@@ -28,6 +35,13 @@ public class InitializeArduino {
     int minimo = 0;
     int maximo = 100;
 
+    /**
+     * O construtor InitializeArduino(AcessaArduino acessaArduino), é a classe que cria a interface 
+     * gráfica com a barra de progresso.
+     * @param não tem parâmetro.
+     * @return é um construtor.
+     * @throws java.lang.InterruptedException
+     */
     public InitializeArduino() throws InterruptedException {
         AcessaArduino acessaArduino = new AcessaArduino();
         /* Criando o JDialog */

@@ -3,8 +3,16 @@ package projeto2;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Autor: Alexandre Yuji Kajihara
+ * Descrição: classe de interface gráfica com os botões controle, led, modo, contato
+ * e sair.
+ * Data de criação: 20/06/2018
+ * Data de atualização: 20/06/2018
+ */
 public class MenuMain {
 
+    /* Atributos */
     /* Tamanho da tela de controle */
     int height = 300;
     int width = 360;
@@ -28,8 +36,14 @@ public class MenuMain {
     int labelWidth = 150;
     int labelHeight = 30;
 
+    /**
+     * O construtor MenuMain(AcessaArduino acessaArduino), é a classe que cria a interface 
+     * gráfica com os botões, as labels e a barra de menu.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return é um construtor.
+     */
     public MenuMain(AcessaArduino acessaArduino) {
-        //System.out.println(acessaArduino.getDadosArduino());
+        
         /* Criando o JDialog */
         JDialog dialog = new JDialog(new JFrame(), "Project car v2", true);
 
@@ -88,9 +102,16 @@ public class MenuMain {
         dialog.setResizable(false);
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
-
     }
 
+    /**
+     * O método controleButtonListener(JButton controleButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado acontece a abertura de outra interface
+     * gráfica.
+     * @param controleButton, é o botão presente nessa interface gráfica.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void controleButtonListener(JButton controleButton, AcessaArduino acessaArduino) {
         controleButton.addActionListener(new ActionListener() {
 
@@ -102,6 +123,14 @@ public class MenuMain {
         });
     }
 
+    /**
+     * O método modoButtonListener(JButton modoButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado acontece a abertura de outra interface
+     * gráfica.
+     * @param modoButton, é o botão presente nessa interface gráfica.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void modoButtonListener(JButton modoButton, AcessaArduino acessaArduino) {
         modoButton.addActionListener(new ActionListener() {
 
@@ -113,6 +142,14 @@ public class MenuMain {
         });
     }
 
+     /**
+     * O método ledButtonListener(JButton ledButton, AcessaArduino acessaArduino), 
+     * é o listener do botão quando clicado acontece a abertura de outra interface
+     * gráfica.
+     * @param ledButton, é o botão presente nessa interface gráfica.
+     * @param acessaArduino, variável que tem a conexão com o arduino.
+     * @return void, ou seja, nada.
+     */
     void ledButtonListener(JButton ledButton, AcessaArduino acessaArduino) {
         ledButton.addActionListener(new ActionListener() {
 
@@ -124,6 +161,12 @@ public class MenuMain {
         });
     }
 
+    /**
+     * O método contatoButtonListener(JButton contatoButton), é o listener do botão
+     * quando clicado acontece a abertura de outra interface gráfica.
+     * @param contatoButton, é o botão presente nessa interface gráfica.
+     * @return void, ou seja, nada.
+     */
     void contatoButtonListener(JButton contatoButton) {
         contatoButton.addActionListener(new ActionListener() {
 
@@ -138,6 +181,12 @@ public class MenuMain {
         });
     }
 
+    /**
+     * O método sairButtonListener(JButton sairButton), é o listener do botão
+     * quando clicado acontece a abertura de outra interface gráfica.
+     * @param sairButton, é o botão presente nessa interface gráfica.
+     * @return void, ou seja, nada.
+     */
     void sairButtonListener(JButton sairButton) {
         sairButton.addActionListener(new ActionListener() {
 
@@ -149,6 +198,12 @@ public class MenuMain {
         });
     }
 
+    /**
+     * O método helpMenuItemListener(JMenuItem helpMenuItem), é o listener do botão
+     * quando clicado acontece a abertura de outra interface gráfica da barra da menu.
+     * @param helpMenuItem, é o botão presente nessa interface gráfica da barra de menu.
+     * @return void, ou seja, nada.
+     */
     void helpMenuItemListener(JMenuItem helpMenuItem) {
         helpMenuItem.addActionListener(new ActionListener() {
 
