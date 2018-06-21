@@ -1,4 +1,4 @@
-package projeto2;
+package TelaArduino;
 
 import javax.swing.*;
 

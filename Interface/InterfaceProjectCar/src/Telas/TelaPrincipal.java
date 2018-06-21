@@ -7,7 +7,7 @@ package Telas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import projeto2.InitializeArduino;
+import TelaArduino.InitializeArduino;
 
 /**
  *

@@ -5,7 +5,7 @@
  */
 package Telas;
 
-import projeto2.AcessaArduino;
+import TelaArduino.AcessaArduino;
 
 /**
  *

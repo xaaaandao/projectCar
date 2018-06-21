@@ -1,4 +1,4 @@
-package projeto2;
+package TelaArduino;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
